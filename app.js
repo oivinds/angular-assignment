@@ -8,7 +8,7 @@
 
     var app = angular.module('formlyExample', ['formly', 'formlyBootstrap', 'ui.bootstrap']);
 
-    app.controller('MainController', function MainController(formlyVersion, country) {
+    app.controller('MainController', function MainController(formlyVersion, country, topic) {
         var vm = this;
         // funcation assignment
         vm.onSubmit = onSubmit;
@@ -109,6 +109,26 @@
                 form: {
                     options: {},
                     model: vm.model,
+                    fields: [
+                        {
+                            key: 'mailinglist',
+                            type: 'checkbox',
+                            defaultValue:true,
+                            templateOptions: {
+                                label: 'Subscribe to mailinglist'
+
+                            }
+                        },
+                        {
+                            key: 'topic',
+                            type: 'select',
+                            templateOptions: {
+                                label: 'Topic of interest',
+                                options: topic.getTopic()
+                            }
+                        }
+
+                    ]
 
                 }
             }
@@ -125,7 +145,6 @@
         // function definition
         function onSubmit() {
             invokeOnAllFormOptions('updateInitialValue');
-            
         }
 
 
@@ -140,7 +159,8 @@
 
     })
 
-        .factory('country', country);
+        .factory('country', country)
+    .factory('topic', topic);
 
     function country() {
         function getCountry() {
@@ -1119,9 +1139,24 @@
                 }
             ]
         }
-
         return {
             getCountry: getCountry
         }
     }
+
+    function topic() {
+        function getTopic(){
+            return [
+                {"name":"Sports"},
+                {"name":"Politics"},
+                {"name":"Music"},
+                {"name":"Lifestyle"}
+            ];
+
+
+        }
+        return {
+            getTopic:getTopic
+        }
+    };
 })();
