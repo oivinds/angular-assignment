@@ -1,10 +1,10 @@
 body {
     margin: 20px;
-    background: #EFEFEF;
+    background: #FEFEFE;
 }
 
 .container{
-    background: #FEFEFE;
+
     max-width: 700px;
 }
 
@@ -14,4 +14,9 @@ body {
 
 .tab-pane {
     padding: 20px;
+}
+
+
+.panel-default{
+    min-height: 300px;
 }
