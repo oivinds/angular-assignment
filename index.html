@@ -12,7 +12,8 @@
     <h1>Angular Form Assignment Example</h1>
 
     <hr/>
-    <div class="center-block">
+    <div class="panel panel-default center-block">
+
         <form ng-submit="vm.onSubmit()" name="vm.form" novalidate>
             <tabset>
                 <tab ng-repeat="tab in vm.tabs"
@@ -24,20 +25,30 @@
                     </formly-form>
                 </tab>
                 <tab heading="Summary">
-                    <div ng-show="!vm.form.$valid">Please fill out the form!</div>
+                    <div ng-show="!vm.form.$valid">Please fill out the form</div>
                     <div ng-show="!vm.form.$invalid">
-                        <p>Hi {{vm.model.firstName}}</p>
-                        <p>First name{{vm.model.firstName}}</p>
-                        <p>Last name{{vm.model.lastName}}</p>
-                        <p>Sex{{vm.model.sex}}</p>
+                        <h4>Hello {{vm.model.firstName}}</h4>
+                        <p>First name: {{vm.model.firstName}}</p>
+                        <p>Last name: {{vm.model.lastName}}</p>
+                        <p>Sex: {{vm.model.sex}}</p>
+                        <p>Street address: {{vm.model.street}}</p>
+                        <p>Post code: {{vm.model.postcode}}</p>
+                        <p>Country: {{vm.model.country}}</p>
+                        <p>Mailinglist: {{vm.model.mailinglist}}</p>
+                        <p>Topics: {{vm.model.topic}}</p>
+
                     </div>
 
 
                 </tab>
             </tabset>
+       <!--     <button class="btn btn-small" ng-click="vm.nav(true)"> > </button>
+            <button class="btn btn-small" ng-click="vm.nav(false)"> < </button>-->
         </form>
     </div>
 
+    <!--<button type="button" class="btn btn-default" ng-click="vm.resetAllForms()">Reset</button>-->
+    <!--<pre>MODEL {{vm.model | json}}</pre>-->
 
 </div>
 <!-- validate formly api-->
