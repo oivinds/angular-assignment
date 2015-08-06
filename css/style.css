@@ -1,0 +1,17 @@
+body {
+    margin: 20px;
+    background: #EFEFEF;
+}
+
+.container{
+    background: #FEFEFE;
+    max-width: 700px;
+}
+
+.formly-field {
+    margin-bottom: 16px;
+}
+
+.tab-pane {
+    padding: 20px;
+}

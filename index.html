@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <!-- Twitter bootstrap -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css" rel="stylesheet">
-
-    <!-- apiCheck is used by formly to validate its api -->
-    <script src="//rawgit.com/kentcdodds/api-check/master/dist/api-check.js"></script>
-    <!-- This is the latest version of angular (at the time this template was created) -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>
-
-
-    <!-- Angular-UI Bootstrap has tabs directive we want -->
-    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
-
-    <!-- This is the current state of master for formly core. -->
-    <script src="//rawgit.com/formly-js/angular-formly/master/dist/formly.js"></script>
-    <!-- This is the current state of master for the bootstrap templates -->
-    <script src="//rawgit.com/formly-js/angular-formly-templates-bootstrap/master/dist/angular-formly-templates-bootstrap.js"></script>
-    <script src="app.js"></script>
-    <title>Angular Formly Example</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Angular Form Assignment Example</title>
 </head>
 
-<body ng-app="formlyExample" ng-controller="MainCtrl as vm">
-<div>
-    <h1>angular-formly example: {{vm.exampleTitle}}</h1>
+<body ng-app="formlyExample" ng-controller="MainController as vm">
+<div class="container">
 
-    <hr />
-    <form ng-submit="vm.onSubmit()" name="vm.form" novalidate>
-        <tabset>
-            <tab ng-repeat="tab in vm.tabs"
-                 heading="{{tab.title}}"
-                 active="tab.active"
-                 disable="tab.disabled">
-                <formly-form model="tab.form.model" fields="tab.form.fields" form="vm.form" options="tab.form.options">
-                </formly-form>
-            </tab>
-            <tab heading="Submit">
-                <button type="submit" class="btn btn-primary submit-button" ng-disabled="vm.form.$invalid">Submit</button>
-                <button type="button" class="btn btn-default" ng-click="vm.resetAllForms()">Reset</button>
-            </tab>
-        </tabset>
-    </form>
-    <hr />
-    <h2>Model Value</h2>
-    <pre>{{vm.model | json}}</pre>
-    <h2>Tabs <small>(note, functions are not shown)</small></h2>
+    <h1>Angular Form Assignment Example</h1>
+
+    <hr/>
+    <div class="center-block">
+        <form ng-submit="vm.onSubmit()" name="vm.form" novalidate>
+            <tabset>
+                <tab ng-repeat="tab in vm.tabs"
+                     heading="{{tab.title}}"
+                     active="tab.active"
+                     disable="tab.disabled">
+                    <formly-form model="tab.form.model" fields="tab.form.fields" form="vm.form"
+                                 options="tab.form.options">
+                    </formly-form>
+                </tab>
+                <tab heading="Summary">
+                    <div ng-show="!vm.form.$valid">Please fill out the form!</div>
+                    <div ng-show="!vm.form.$invalid">
+                        <p>Hi {{vm.model.firstName}}</p>
+                        <p>First name{{vm.model.firstName}}</p>
+                        <p>Last name{{vm.model.lastName}}</p>
+                        <p>Sex{{vm.model.sex}}</p>
+                    </div>
+
+
+                </tab>
+            </tabset>
+        </form>
+    </div>
+    <hr/>
+
+    <!--<button type="button" class="btn btn-default" ng-click="vm.resetAllForms()">Reset</button>-->
+    <pre>MODEL {{vm.model | json}}</pre>
+
     <pre>{{vm.originalTabs | json}}</pre>
     <h2>Form</h2>
     <pre>{{vm.form | json}}</pre>
 </div>
+<!-- validate formly api-->
+<script src="bower_components/api-check/dist/api-check.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<!-- Angular-UI Bootstrap has tabs directive we want -->
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-formly/dist/formly.js"></script>
+<script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+<script src="app.js"></script>
 
-<!-- Put custom templates here -->
 
 </body>
 

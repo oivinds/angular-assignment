@@ -1,0 +1,27 @@
+{
+  "name": "assignmentform",
+  "version": "0.0.0",
+  "authors": [
+    "Øivind Svenkerud <oivind.halgrim.svenkerud@gmail.com>"
+  ],
+  "description": "bootstrap form example",
+  "main": "app.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "api-check": "~7.5.0",
+    "angular": "~1.4.3",
+    "angular-bootstrap": "~0.13.2",
+    "angular-formly": "~6.23.0",
+    "angular-formly-templates-bootstrap": "~6.0.0"
+  }
+}
