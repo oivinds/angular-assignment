@@ -84,6 +84,15 @@
                             templateOptions: {
                                 label: 'Postcode',
                                 required: true
+                            },
+                            validators: {
+
+                                postcodeVal: function($viewValue, $modelValue) {
+                                    var value = $modelValue || $viewValue;
+                                    if(value) {
+                                        return postcodeValidator(value)
+                                    }
+                                }
                             }
                         },
                         {
@@ -160,7 +169,7 @@
         vm.nav = function (isForward) {
 
             var l = vm.tabs.length - 1;
-            var c = vm.active();
+            var c = active();
 
             if (isForward && c < l) {
                 vm.tabs[c + 1].active = true;
@@ -175,6 +184,11 @@
             return Object.keys(vm.model).length;
         };
 
+        // validate
+        function postcodeValidator(value) {
+
+            return /^\d{4}$/.test(value);
+        }
 
 
         function invokeOnAllFormOptions(fn) {
@@ -185,7 +199,7 @@
             });
         }
 
-        vm.active = function() {
+        function active() {
             for (var i = 0; i < vm.tabs.length; i++) {
                 if (vm.tabs[i].active) {
                     return i;
