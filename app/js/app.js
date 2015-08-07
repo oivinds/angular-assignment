@@ -122,6 +122,7 @@
                         {
                             key: 'topic',
                             type: 'select',
+                            defaultValue:"Velg",
                             templateOptions: {
                                 label: 'Topic of interest',
                                 options: topic.getTopic()
@@ -134,18 +135,23 @@
             }
 
         ];
-
-        vm.originalTabs = angular.copy(vm.form);
+        // make first tab active
+        vm.tabs[0].active = true;
 
         vm.nav = function(isForward){
-            var l = vm.tabs.length;
 
-         /*   var c = active();
-            console.log("forward %s length %s currentActive %s", isForward, l, c)
+            var l = vm.tabs.length-1;
+            var c = active();
+            console.log('start');
+            console.log(l);
+
+            console.log("end");
+            console.log(c % l );
             if (isForward && c < l){
                 vm.tabs[c+1].active = true;
-
-            }*/
+            }else if (!isForward && c > 0){
+                vm.tabs[c-1].active = true;
+            }
 
         };
         function active() {

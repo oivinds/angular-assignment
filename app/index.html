@@ -5,12 +5,9 @@
     <link href="css/style.css" rel="stylesheet">
     <title>Angular Form Assignment Example</title>
 </head>
-
 <body ng-app="formlyExample" ng-controller="MainController as vm">
 <div class="container">
-
     <h1>Angular Form Assignment Example</h1>
-
     <hr/>
     <div class="panel panel-default center-block">
 
@@ -25,6 +22,8 @@
                     </formly-form>
                 </tab>
                 <tab heading="Summary">
+
+
                     <div ng-show="!vm.form.$valid">Please fill out the form</div>
                     <div ng-show="!vm.form.$invalid">
                         <h4>Hello {{vm.model.firstName}}</h4>
@@ -36,19 +35,16 @@
                         <p>Country: {{vm.model.country}}</p>
                         <p>Mailinglist: {{vm.model.mailinglist}}</p>
                         <p>Topics: {{vm.model.topic}}</p>
-
                     </div>
-
-
                 </tab>
             </tabset>
-       <!--     <button class="btn btn-small" ng-click="vm.nav(true)"> > </button>
-            <button class="btn btn-small" ng-click="vm.nav(false)"> < </button>-->
+            <button class="btn btn-small" ng-click="vm.nav(false)"><i class="glyphicon glyphicon-triangle-left"></i></button>
+            <button class="btn btn-small" ng-click="vm.nav(true)"><i class="glyphicon glyphicon-triangle-right"></i></button>
         </form>
     </div>
 
     <!--<button type="button" class="btn btn-default" ng-click="vm.resetAllForms()">Reset</button>-->
-    <!--<pre>MODEL {{vm.model | json}}</pre>-->
+    <pre>MODEL {{vm.model | json}}</pre>
 
 </div>
 <!-- validate formly api-->
@@ -59,9 +55,5 @@
 <script src="bower_components/angular-formly/dist/formly.js"></script>
 <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
 <script src="js/app.js"></script>
-
-
 </body>
-
 </html>
-
