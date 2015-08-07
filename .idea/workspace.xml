@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="1270" selection-end="1270" vertical-scroll-proportion="-21.125" vertical-offset="3" max-vertical-offset="1155">
+            <state line="55" column="53" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.5736434" vertical-offset="603" max-vertical-offset="1155">
               <folding>
                 <marker date="1438945989000" expanded="true" signature="1478:1870" placeholder="..." />
               </folding>
@@ -43,10 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="189" column="28" selection-start="6454" selection-end="6454" vertical-scroll-proportion="0.8540146" vertical-offset="1869" max-vertical-offset="2670">
+            <state line="189" column="28" selection-start="6454" selection-end="6454" vertical-scroll-proportion="0.0" vertical-offset="1869" max-vertical-offset="2670">
               <folding>
                 <element signature="e#42#62#0" expanded="false" />
                 <element signature="e#229#384#0" expanded="false" />
@@ -521,7 +521,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32977098" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32977098" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1753,18 +1753,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1270" selection-end="1270" vertical-scroll-proportion="-21.125" vertical-offset="3" max-vertical-offset="1155">
-          <folding>
-            <marker date="1438945989000" expanded="true" signature="1478:1870" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="28" selection-start="6454" selection-end="6454" vertical-scroll-proportion="0.8540146" vertical-offset="1869" max-vertical-offset="2670">
+        <state line="189" column="28" selection-start="6454" selection-end="6454" vertical-scroll-proportion="0.0" vertical-offset="1869" max-vertical-offset="2670">
           <folding>
             <element signature="e#42#62#0" expanded="false" />
             <element signature="e#229#384#0" expanded="false" />
@@ -2034,6 +2025,15 @@
             <element signature="e#34948#35287#0" expanded="false" />
             <element signature="e#34969#35274#0" expanded="false" />
             <element signature="e#35304#35346#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="53" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.5736434" vertical-offset="603" max-vertical-offset="1155">
+          <folding>
+            <marker date="1438945989000" expanded="true" signature="1478:1870" placeholder="..." />
           </folding>
         </state>
       </provider>
