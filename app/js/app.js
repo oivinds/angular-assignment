@@ -53,6 +53,7 @@
                             templateOptions: {
                                 "label": "Sex",
                                 required: true,
+                                "valueProp":"name",
                                 "options": [
                                     {
                                         "name": "Male",
@@ -60,7 +61,7 @@
                                     },
                                     {
                                         "name": "Female",
-                                        "value": "yesno"
+                                        "value": "female"
                                     }
                                 ]
                             }
@@ -101,9 +102,11 @@
                         {
                             key: 'country',
                             type: 'select',
+                            defaultValue:"NO",
                             templateOptions: {
                                 label: 'Country',
-                                options: country.getCountry().reverse()
+                                options: country.getCountry().reverse(),
+                                required:true
                             }
                         }
 
@@ -128,7 +131,7 @@
                         {
                             key: 'topic',
                             type: 'select',
-                            defaultValue: "Velg",
+                            defaultValue: "everything",
                             templateOptions: {
                                 label: 'Topic of interest',
                                 options: topic.getTopic()
@@ -149,8 +152,10 @@
 
                             key: 'custom',
                             type: 'custom',
-                            noFormControl: true,
+                            noFormControl: false,
                             templateOptions: { }
+
+
 
                         }
                     ]
@@ -1192,6 +1197,7 @@
     function topic() {
         function getTopic() {
             return [
+                {"name": "Everything", "value": "everything"},
                 {"name": "Sports", "value": "sports"},
                 {"name": "Politics", "value": "politics"},
                 {"name": "Music", "value": "music"},

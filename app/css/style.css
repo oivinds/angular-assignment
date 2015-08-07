@@ -8,6 +8,7 @@ body {
 
 .formly-field {
     margin-bottom: 20px;
+    max-width: 300px;
 }
 
 .tab-pane {
