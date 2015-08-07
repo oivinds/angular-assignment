@@ -1,29 +1,27 @@
 body {
-    margin: 20px;
-    background: #FEFEFE;
+    background: #FAFAFA;
 }
 
-.container{
-
+.container {
     max-width: 700px;
 }
 
 .formly-field {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .tab-pane {
     padding: 20px;
 }
 
-
-.panel-default{
-    height: 440px;
+.panel-default {
+    height: 480px;
 }
 
-.navigation{
-
+.buttons {
+    position: relative;
     float: right;
-
+    margin-right: 20px;
+    bottom: 76px;
 
 }

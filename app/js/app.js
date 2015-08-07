@@ -160,7 +160,7 @@
 
         ];
         // make first tab active
-        vm.tabs[3].active = true;
+        vm.tabs[0].active = true;
 
         vm.nav = function (isForward) {
 
