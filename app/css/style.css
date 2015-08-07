@@ -18,5 +18,12 @@ body {
 
 
 .panel-default{
-    min-height: 300px;
+    height: 440px;
+}
+
+.navigation{
+
+    float: right;
+
+
 }

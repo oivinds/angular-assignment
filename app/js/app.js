@@ -6,7 +6,13 @@
 
     'use strict';
 
-    var app = angular.module('formlyExample', ['formly', 'formlyBootstrap', 'ui.bootstrap']);
+    var app = angular.module('formlyExample', ['formly', 'formlyBootstrap', 'ui.bootstrap'], function config(formlyConfigProvider) {
+        // set templates here
+        formlyConfigProvider.setType({
+            name: 'custom',
+            templateUrl: 'custom.html'
+        });
+    });
 
     app.controller('MainController', function MainController(formlyVersion, country, topic) {
         var vm = this;
@@ -113,7 +119,7 @@
                         {
                             key: 'mailinglist',
                             type: 'checkbox',
-                            defaultValue:true,
+                            defaultValue: true,
                             templateOptions: {
                                 label: 'Subscribe to mailinglist'
 
@@ -122,7 +128,7 @@
                         {
                             key: 'topic',
                             type: 'select',
-                            defaultValue:"Velg",
+                            defaultValue: "Velg",
                             templateOptions: {
                                 label: 'Topic of interest',
                                 options: topic.getTopic()
@@ -132,36 +138,42 @@
                     ]
 
                 }
+            },
+            {
+                title: 'Summary',
+                form: {
+                    options: {},
+                    model: vm.model,
+                    fields: [
+                        {
+
+                            key: 'custom',
+                            type: 'custom',
+                            noFormControl: true,
+                            templateOptions: { }
+
+                        }
+                    ]
+
+                }
             }
 
         ];
         // make first tab active
-        vm.tabs[0].active = true;
+        vm.tabs[3].active = true;
 
-        vm.nav = function(isForward){
+        vm.nav = function (isForward) {
 
-            var l = vm.tabs.length-1;
+            var l = vm.tabs.length - 1;
             var c = active();
-            console.log('start');
-            console.log(l);
 
-            console.log("end");
-            console.log(c % l );
-            if (isForward && c < l){
-                vm.tabs[c+1].active = true;
-            }else if (!isForward && c > 0){
-                vm.tabs[c-1].active = true;
+            if (isForward && c < l) {
+                vm.tabs[c + 1].active = true;
+            } else if (!isForward && c > 0) {
+                vm.tabs[c - 1].active = true;
             }
 
         };
-        function active() {
-            for (var i=0; i < vm.tabs.length; i++) {
-                if (vm.tabs[i].active) {
-                    return i;
-                }
-            }
-        }
-
 
 
         vm.modelEmptyBool = function () {
@@ -173,7 +185,6 @@
             invokeOnAllFormOptions('updateInitialValue');
         }
 
-
         function invokeOnAllFormOptions(fn) {
             angular.forEach(vm.tabs, function (tab) {
                 if (tab.form.options && tab.form.options[fn]) {
@@ -182,11 +193,18 @@
             });
         }
 
+        function active() {
+            for (var i = 0; i < vm.tabs.length; i++) {
+                if (vm.tabs[i].active) {
+                    return i;
+                }
+            }
+        }
 
     })
 
         .factory('country', country)
-    .factory('topic', topic);
+        .factory('topic', topic);
 
     function country() {
         function getCountry() {
@@ -1165,24 +1183,26 @@
                 }
             ]
         }
+
         return {
             getCountry: getCountry
         }
     }
 
     function topic() {
-        function getTopic(){
+        function getTopic() {
             return [
-                {"name":"Sports", "value":"sports"},
-                {"name":"Politics","value":"politics"},
-                {"name":"Music","value":"music"},
-                {"name":"Lifestyle", "value":"lifestyle"}
+                {"name": "Sports", "value": "sports"},
+                {"name": "Politics", "value": "politics"},
+                {"name": "Music", "value": "music"},
+                {"name": "Lifestyle", "value": "lifestyle"}
             ];
 
 
         }
+
         return {
-            getTopic:getTopic
+            getTopic: getTopic
         }
     };
 })();

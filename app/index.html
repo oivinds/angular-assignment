@@ -10,7 +10,6 @@
     <h1>Angular Form Assignment Example</h1>
     <hr/>
     <div class="panel panel-default center-block">
-
         <form ng-submit="vm.onSubmit()" name="vm.form" novalidate>
             <tabset>
                 <tab ng-repeat="tab in vm.tabs"
@@ -21,30 +20,38 @@
                                  options="tab.form.options">
                     </formly-form>
                 </tab>
-                <tab heading="Summary">
-
-
-                    <div ng-show="!vm.form.$valid">Please fill out the form</div>
-                    <div ng-show="!vm.form.$invalid">
-                        <h4>Hello {{vm.model.firstName}}</h4>
-                        <p>First name: {{vm.model.firstName}}</p>
-                        <p>Last name: {{vm.model.lastName}}</p>
-                        <p>Sex: {{vm.model.sex}}</p>
-                        <p>Street address: {{vm.model.street}}</p>
-                        <p>Post code: {{vm.model.postcode}}</p>
-                        <p>Country: {{vm.model.country}}</p>
-                        <p>Mailinglist: {{vm.model.mailinglist}}</p>
-                        <p>Topics: {{vm.model.topic}}</p>
-                    </div>
-                </tab>
             </tabset>
+        </form>
+        <div class="navigation">
             <button class="btn btn-small" ng-click="vm.nav(false)"><i class="glyphicon glyphicon-triangle-left"></i></button>
             <button class="btn btn-small" ng-click="vm.nav(true)"><i class="glyphicon glyphicon-triangle-right"></i></button>
-        </form>
+        </div>
     </div>
+
 
     <!--<button type="button" class="btn btn-default" ng-click="vm.resetAllForms()">Reset</button>-->
     <pre>MODEL {{vm.model | json}}</pre>
+
+    <!--custom content template for Summary tab-->
+    <script type="text/ng-template" id="custom.html">
+
+        <div ng-show="!form.$valid">Please fill out the form</div>
+        <div ng-show="!form.$invalid">
+            <h4>Hello {{model.firstName}}</h4>
+            <p>First name: {{model.firstName}}</p>
+            <p>Last name: {{model.lastName}}</p>
+            <p>Sex: {{model.sex}}</p>
+            <p>Street address: {{model.street}}</p>
+            <p>Post code: {{model.postcode}}</p>
+            <p>Country: {{model.country}}</p>
+            <p>Mailinglist: {{model.mailinglist}}</p>
+            <p>Topics: {{model.topic}}</p>
+        </div>
+
+    </script>
+
+
+
 
 </div>
 <!-- validate formly api-->
