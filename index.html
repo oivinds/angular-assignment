@@ -25,27 +25,22 @@
     </div>
     <!--panel-->
     <div class="buttons">
-        <button class="btn btn-small" ng-click="vm.nav(false)"><i class="glyphicon glyphicon-triangle-left"></i>
+
+        <button class="btn btn-small"  ng-click="vm.nav(false)"><i class="glyphicon glyphicon-triangle-left"></i>
         </button>
         <button class="btn btn-small" ng-click="vm.nav(true)"><i class="glyphicon glyphicon-triangle-right"></i>
         </button>
     </div>
 
 
-    <br>
-    <!--<button type="button" class="btn btn-default" ng-click="vm.resetAllForms()">Reset</button>-->
- <!--   <pre>MODEL: {{vm.model | json}}</pre>-->
-
     <!--custom content template for Summary tab-->
     <script type="text/ng-template" id="custom.html">
 
-        <div ng-show="!form.$valid">Please fill out the form</div>
-        <div ng-show="!form.$invalid">
-            <h4>Hello {{model.firstName}}</h4>
+        <h4 ng-hide="form.$valid">Please fill out the form!</h4>
+        <div ng-hide="form.$invalid">
 
-            <p>First name: {{model.firstName}}</p>
 
-            <p>Last name: {{model.lastName}}</p>
+            <h4>{{model.firstName}} {{model.lastName}}</h4>
 
             <p>Sex: {{model.sex}}</p>
 
@@ -55,9 +50,10 @@
 
             <p>Country: {{model.country}}</p>
 
-            <p>Mailinglist: {{model.mailinglist}}</p>
 
-            <p>Topics: {{model.topic}}</p>
+            <p>Mailinglist: {{model.mailinglist ? "yes" : "no"}}</p>
+
+            <p>Topic of interest: {{model.topic}}</p>
         </div>
 
     </script>

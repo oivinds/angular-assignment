@@ -16,13 +16,8 @@
 
     app.controller('MainController', function MainController(formlyVersion, country, topic) {
         var vm = this;
-        // funcation assignment
-        vm.onSubmit = onSubmit;
         vm.resetAllForms = invokeOnAllFormOptions.bind(null, 'resetModel');
-
-
         vm.model = {};
-
         vm.tabs = [
 
             {
@@ -53,6 +48,7 @@
                             templateOptions: {
                                 "label": "Sex",
                                 required: true,
+                                "valueProp":"name",
                                 "options": [
                                     {
                                         "name": "Male",
@@ -60,7 +56,7 @@
                                     },
                                     {
                                         "name": "Female",
-                                        "value": "yesno"
+                                        "value": "female"
                                     }
                                 ]
                             }
@@ -101,9 +97,12 @@
                         {
                             key: 'country',
                             type: 'select',
+                            defaultValue:"Norway",
                             templateOptions: {
                                 label: 'Country',
-                                options: country.getCountry().reverse()
+                                "valueProp":"name",
+                                options: country.getCountry().reverse(),
+                                required:true
                             }
                         }
 
@@ -122,21 +121,19 @@
                             defaultValue: true,
                             templateOptions: {
                                 label: 'Subscribe to mailinglist'
-
                             }
                         },
                         {
                             key: 'topic',
                             type: 'select',
-                            defaultValue: "Velg",
                             templateOptions: {
+                                "valueProp":"name",
                                 label: 'Topic of interest',
+                                required:true,
                                 options: topic.getTopic()
                             }
                         }
-
                     ]
-
                 }
             },
             {
@@ -146,12 +143,10 @@
                     model: vm.model,
                     fields: [
                         {
-
                             key: 'custom',
                             type: 'custom',
-                            noFormControl: true,
+                            noFormControl: false,
                             templateOptions: { }
-
                         }
                     ]
 
@@ -165,7 +160,7 @@
         vm.nav = function (isForward) {
 
             var l = vm.tabs.length - 1;
-            var c = active();
+            var c = vm.active();
 
             if (isForward && c < l) {
                 vm.tabs[c + 1].active = true;
@@ -180,10 +175,7 @@
             return Object.keys(vm.model).length;
         };
 
-        // function definition
-        function onSubmit() {
-            invokeOnAllFormOptions('updateInitialValue');
-        }
+
 
         function invokeOnAllFormOptions(fn) {
             angular.forEach(vm.tabs, function (tab) {
@@ -193,7 +185,7 @@
             });
         }
 
-        function active() {
+        vm.active = function() {
             for (var i = 0; i < vm.tabs.length; i++) {
                 if (vm.tabs[i].active) {
                     return i;
@@ -1192,6 +1184,7 @@
     function topic() {
         function getTopic() {
             return [
+                {"name": "Everything", "value": "everything"},
                 {"name": "Sports", "value": "sports"},
                 {"name": "Politics", "value": "politics"},
                 {"name": "Music", "value": "music"},
